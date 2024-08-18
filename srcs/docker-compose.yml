@@ -4,4 +4,10 @@ services:
   nginx:
     build: ./requirements/nginx/
     ports:
-      -80:80
+      - 443:443
+    env_file:
+      - .env
+  wordpress:
+    build: ./requirements/wordpress/
+    env_file:
+      - .env

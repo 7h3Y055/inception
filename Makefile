@@ -1,4 +1,5 @@
-container=wordpress
+#container=wordpress
+container=nginx
 
 
 start:
