@@ -1,19 +1,22 @@
-#container=wordpress
-container=nginx
+NAME = inception
+C_DIR = ./srcs/docker-compose.yml
 
+up: 
+	docker-compose -f $(C_DIR) build
+	docker-compose -f $(C_DIR) -p $(NAME) up -d
 
-start:
-	docker build --tag $(container) ./srcs/requirements/$(container)/
-	docker run -d --name $(container) -p 9000:9000 $(container)
 stop:
-	docker container stop $(container)
+	docker-compose -f $(C_DIR) -p $(NAME) stop
+
+down:
+	docker-compose -f $(C_DIR) -p $(NAME) down --rmi all
+
 status:
-	docker container ls -a
-delall:
-	echo y | docker container prune
-shell:
-	docker exec -it $(container) sh
+	docker-compose -f $(C_DIR) -p $(NAME) ps
+	@# @bash ./srcs/requirements/tools/status.sh
+
+re: down up
+
+
 test:
 	docker run -it alpine sh
-
-re:stop delall start

@@ -1,13 +1,21 @@
-version: '3.9'
 
 services:
   nginx:
     build: ./requirements/nginx/
     ports:
       - 443:443
+    networks:
+      - inception_net
     env_file:
       - .env
   wordpress:
     build: ./requirements/wordpress/
+    networks:
+      - inception_net
     env_file:
       - .env
+
+
+networks:
+  inception_net:
+    driver: bridge

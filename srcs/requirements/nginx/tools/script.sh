@@ -1,14 +1,6 @@
 #!/bin/sh
 
-#pre add all dockerfiles on docker compose
-ssl_crt_path="/etc/nginx/ssl"
 export ssl_crt_path="/etc/nginx/ssl"
-
-
-
-mkdir -p /srv/http
-
-echo HIIIIIIIII3 > /srv/http/index.html
 
 mkdir -p $ssl_crt_path
 
