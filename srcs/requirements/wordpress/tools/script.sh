@@ -1,8 +1,8 @@
 #!/bin/sh
 
 
-mkdir -p /srv/http
-cd /srv/http
+# mkdir -p /var/www/html
+cd /var/www/html
 
 wget https://wordpress.org/latest.zip
 wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli-nightly.phar

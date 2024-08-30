@@ -1,17 +1,25 @@
 
 services:
+
   nginx:
     build: ./requirements/nginx/
     ports:
       - 443:443
     networks:
       - inception_net
+    volumes:
+      - ~/data/wordpress:/var/www/html
     env_file:
       - .env
+    depends_on:
+      - wordpress
+
   wordpress:
     build: ./requirements/wordpress/
     networks:
       - inception_net
+    volumes:
+      - ~/data/wordpress:/var/www/html
     env_file:
       - .env
 

@@ -9,7 +9,8 @@ stop:
 	docker-compose -f $(C_DIR) -p $(NAME) stop
 
 down:
-	docker-compose -f $(C_DIR) -p $(NAME) down --rmi all
+	docker-compose -f $(C_DIR) -p $(NAME) down --rmi all -v
+	rm -rf ~/data
 
 status:
 	docker-compose -f $(C_DIR) -p $(NAME) ps
@@ -17,6 +18,9 @@ status:
 
 re: down up
 
+setup:
+	mkdir -p ~/data/wordpress
+	mkdir -p ~/data/database
 
 test:
 	docker run -it alpine sh
