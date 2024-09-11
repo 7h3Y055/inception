@@ -4,7 +4,7 @@ WORKDIR /
 
 RUN apk update --no-cache
 RUN apk upgrade --no-cache
-RUN apk add --no-cache zip php php-fpm php-phar php-mysqli
+RUN apk add --no-cache zip php php-fpm php-phar php-mysqli mariadb-client
 
 
 COPY ./tools/script.sh script.sh

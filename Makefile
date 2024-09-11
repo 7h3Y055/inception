@@ -1,7 +1,7 @@
 NAME = inception
 C_DIR = ./srcs/docker-compose.yml
 
-up: 
+up:
 	docker-compose -f $(C_DIR) build
 	docker-compose -f $(C_DIR) -p $(NAME) up -d
 
@@ -24,3 +24,5 @@ setup:
 
 test:
 	docker run -it alpine sh
+
+#    docker container exec -it $(docker container ls | tail -n -1 | awk '{print $1}') sh
