@@ -24,5 +24,3 @@ setup:
 
 test:
 	docker run -it alpine sh
-
-#    docker container exec -it $(docker container ls | tail -n -1 | awk '{print $1}') sh
