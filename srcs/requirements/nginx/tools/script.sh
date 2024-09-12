@@ -14,4 +14,5 @@ ssl_crt_path_escaped=$(echo "$ssl_crt_path" | sed 's/\//\\\//g')
 
 sed -i "s/\[ssl_crt_path\]/$ssl_crt_path_escaped/" /etc/nginx/http.d/default.conf
 
+
 nginx -g "daemon off;"
