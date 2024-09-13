@@ -1,16 +1,16 @@
 #!/bin/sh
 
-mkdir -p $ssl_crt_path
+mkdir -p $SSL_CRT_PATH
 
 openssl req -x509 -nodes -days 365 \
     -newkey rsa:2048 \
-    -keyout $ssl_crt_path/nginx.key \
-    -out $ssl_crt_path/nginx.crt \
-    -subj "/C=US/ST=State/L=City/O=Organization/OU=Department/CN=localhost"
+    -keyout $SSL_CRT_PATH/nginx.key \
+    -out $SSL_CRT_PATH/nginx.crt \
+    -subj "/C=MA/ST=RABAT/O=42/OU=1337/CN=$DOMAIN"
 
-ssl_crt_path_escaped=$(echo "$ssl_crt_path" | sed 's/\//\\\//g')
+SSL_CRT_PATH_ESCAPED=$(echo "$SSL_CRT_PATH" | sed 's/\//\\\//g')
 
-sed -i "s/\[ssl_crt_path\]/$ssl_crt_path_escaped/" /etc/nginx/http.d/default.conf
+sed -i "s/\[SSL_CRT_PATH\]/$SSL_CRT_PATH_ESCAPED/" /etc/nginx/http.d/default.conf
 
 
 nginx -g "daemon off;"

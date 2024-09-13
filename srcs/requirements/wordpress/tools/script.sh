@@ -13,8 +13,8 @@ mv wp-cli-nightly.phar /bin/wp
 
 sleep 3
 cd wordpress
-/bin/wp config create --force --dbname=$wp_database_name --dbuser=$wp_user --dbpass=$wp_user_password --dbhost=mariadb --dbprefix=$wp_dbprefix
+/bin/wp config create --force --dbname=$WP_DATABASE_NAME --dbuser=$WP_USER --dbpass=$WP_USER_PASSWORD --dbhost=mariadb --dbprefix=$WP_DB_PREFIX
 
-/bin/wp core install --url=$domain --title=$wp_title --admin_user=$admin_username --admin_password=$admin_password --admin_email=$admin_email
+/bin/wp core install --url=$DOMAIN --title=$WP_TITLE --admin_user=$ADMIN_USERNAME --admin_password=$ADMIN_PASSWORD --admin_email=$ADMIN_EMAIL
 
 php-fpm82 -F

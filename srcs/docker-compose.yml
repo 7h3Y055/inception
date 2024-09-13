@@ -10,7 +10,7 @@ services:
     # networks:
     #   - inception_net
     volumes:
-      - ${home_path}/data/wordpress:/var/www/html/wordpress
+      - ${HOME_PATH}/data/wordpress:/var/www/html/wordpress
     env_file:
       - .env
     depends_on:
@@ -21,7 +21,7 @@ services:
     # networks:
     #   - inception_net
     volumes:
-      - ${home_path}/data/wordpress:/var/www/html/wordpress
+      - ${HOME_PATH}/data/wordpress:/var/www/html/wordpress
     env_file:
       - .env
     depends_on:
@@ -32,7 +32,7 @@ services:
     # networks:
     #   - inception_net
     volumes:
-      - ${home_path}/data/mariadb:/var/lib/mysql
+      - ${HOME_PATH}/data/mariadb:/var/lib/mysql
     env_file:
       - .env
 

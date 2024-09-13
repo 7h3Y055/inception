@@ -3,7 +3,7 @@ include srcs/.env
 NAME = inception
 C_DIR = ./srcs/docker-compose.yml
 
-up:
+up: setup
 	docker-compose -f $(C_DIR) build
 	docker-compose -f $(C_DIR) -p $(NAME) up -d
 
@@ -21,11 +21,12 @@ status:
 re: down up
 
 setup:
-	mkdir -p /home/$(login)/data/wordpress
-	mkdir -p /home/$(login)/data/database
+	LOGIN=$(LOGIN) DOMAIN=$(DOMAIN) bash ./srcs/requirements/tools/setup.sh
+
+
 
 # test:
-# 	@echo $(domain)
+# 	@echo $(DOMAIN)
 # 	@# docker run -it alpine sh
 
 # docker rmi $(docker images -aq)

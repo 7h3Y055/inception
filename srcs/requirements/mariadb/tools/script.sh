@@ -10,24 +10,22 @@ mysql_secure_installation <<EOF
     
     n
     y
-    $mariadb_root_password
-    $mariadb_root_password
+    $MARIADB_ROOT_PASSWORD
+    $MARIADB_ROOT_PASSWORD
     y
     y
     y
     y
 EOF
 
-mysql -u root  <<EOF
-    CREATE DATABASE IF NOT EXISTS $wp_database_name;
-    CREATE USER IF NOT EXISTS '$wp_user'@'%' IDENTIFIED BY '$wp_user_password';
-    GRANT ALL PRIVILEGES ON $wp_database_name.* TO '$wp_user'@'%';
+mysql -u root 2>/error 1>/out <<EOF
+    CREATE DATABASE IF NOT EXISTS $WP_DATABASE_NAME;
+    CREATE USER IF NOT EXISTS '$WP_USER'@'%' IDENTIFIED BY '$WP_USER_PASSWORD';
+    GRANT ALL PRIVILEGES ON $WP_DATABASE_NAME.* TO '$WP_USER'@'%';
     FLUSH PRIVILEGES;
 EOF
 
 
 mysqladmin -u root shutdown
-
-# chown mysql:mysql /etc/my.cnf
 
 exec mysqld --user=mysql --console
