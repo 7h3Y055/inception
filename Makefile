@@ -1,3 +1,5 @@
+include srcs/.env
+
 NAME = inception
 C_DIR = ./srcs/docker-compose.yml
 
@@ -19,10 +21,23 @@ status:
 re: down up
 
 setup:
-	mkdir -p ~/data/wordpress
-	mkdir -p ~/data/database
+	mkdir -p /home/$(login)/data/wordpress
+	mkdir -p /home/$(login)/data/database
 
-test:
-	docker run -it alpine sh
+# test:
+# 	@echo $(domain)
+# 	@# docker run -it alpine sh
 
 # docker rmi $(docker images -aq)
+
+
+# volumes ????
+# Your containers have to restart in case of a crash.
+# /home/login/data
+# login.42.fr.
+
+
+# For obvious security reasons, any credentials, API keys, env
+# variables etc... must be saved locally in a .env file and ignored by
+# git. Publicly stored credentials will lead you directly to a failure
+# of the project.

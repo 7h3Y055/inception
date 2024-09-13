@@ -1,14 +1,16 @@
 
+
+
 services:
 
   nginx:
     build: ./requirements/nginx/
     ports:
       - 443:443
-    networks:
-      - inception_net
+    # networks:
+    #   - inception_net
     volumes:
-      - ~/data/wordpress:/var/www/html
+      - ${home_path}/data/wordpress:/var/www/html/wordpress
     env_file:
       - .env
     depends_on:
@@ -16,10 +18,10 @@ services:
 
   wordpress:
     build: ./requirements/wordpress/
-    networks:
-      - inception_net
+    # networks:
+    #   - inception_net
     volumes:
-      - ~/data/wordpress:/var/www/html
+      - ${home_path}/data/wordpress:/var/www/html/wordpress
     env_file:
       - .env
     depends_on:
@@ -27,13 +29,13 @@ services:
 
   mariadb:
     build: ./requirements/mariadb/
-    networks:
-      - inception_net
+    # networks:
+    #   - inception_net
     volumes:
-      - ~/data/mariadb:/var/lib/mysql
+      - ${home_path}/data/mariadb:/var/lib/mysql
     env_file:
       - .env
 
-networks:
-  inception_net:
-    driver: bridge
+# networks:
+#   inception_net:
+#     driver: bridge
