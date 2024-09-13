@@ -1,7 +1,5 @@
 #!/bin/sh
 
-export ssl_crt_path="/etc/nginx/ssl"
-
 mkdir -p $ssl_crt_path
 
 openssl req -x509 -nodes -days 365 \
