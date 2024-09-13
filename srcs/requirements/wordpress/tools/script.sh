@@ -11,7 +11,7 @@ rm latest.zip
 chmod +x wp-cli-nightly.phar
 mv wp-cli-nightly.phar /bin/wp
 
-sleep 5
+sleep 3
 cd wordpress
 /bin/wp config create --force --dbname=$wp_database_name --dbuser=$wp_user --dbpass=$wp_user_password --dbhost=mariadb --dbprefix=$wp_dbprefix
 

@@ -24,3 +24,5 @@ setup:
 
 test:
 	docker run -it alpine sh
+
+# docker rmi $(docker images -aq)

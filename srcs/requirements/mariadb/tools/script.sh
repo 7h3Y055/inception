@@ -4,7 +4,7 @@
 mysql_install_db --user=mysql --datadir=/var/lib/mysql
 
 mysqld_safe --skip-networking &
-sleep 1
+sleep 1.5
 
 mysql_secure_installation <<EOF
     
@@ -28,6 +28,6 @@ EOF
 
 mysqladmin -u root shutdown
 
-chown mysql:mysql /etc/my.cnf
+# chown mysql:mysql /etc/my.cnf
 
 exec mysqld --user=mysql --console
