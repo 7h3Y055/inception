@@ -14,13 +14,17 @@ stop:
 
 down:
 	docker-compose -f $(C_DIR) -p $(NAME) down --rmi all -v
+	rm -rf $(HOME_PATH)/data
 
 status:
 	@watch --color -t C_DIR=$(C_DIR) NAME=$(NAME) bash ./srcs/requirements/tools/status.sh
 
+logs:
+	docker-compose -f $(C_DIR) -p $(NAME) logs $(c)
+
 re: stop up
 
-rebuild: down build
+rebuild: down up
 
 
 setup:
