@@ -3,27 +3,31 @@ include srcs/.env
 NAME = inception
 C_DIR = ./srcs/docker-compose.yml
 
-up: setup
-	docker-compose -f $(C_DIR) build
+up: setup build
 	docker-compose -f $(C_DIR) -p $(NAME) up -d
+
+build:
+	docker-compose -f $(C_DIR) build
 
 stop:
 	docker-compose -f $(C_DIR) -p $(NAME) stop
 
 down:
 	docker-compose -f $(C_DIR) -p $(NAME) down --rmi all -v
-	rm -rf ~/data
 
 status:
-	docker-compose -f $(C_DIR) -p $(NAME) ps
-	@# @bash ./srcs/requirements/tools/status.sh
+	@watch --color -t C_DIR=$(C_DIR) NAME=$(NAME) bash ./srcs/requirements/tools/status.sh
 
-re: down up
+re: stop up
+
+rebuild: down build
+
 
 setup:
 	LOGIN=$(LOGIN) DOMAIN=$(DOMAIN) bash ./srcs/requirements/tools/setup.sh
 
 
+	@# rm -rf $(HOME_PATH)/data
 
 # test:
 # 	@echo $(DOMAIN)
@@ -35,7 +39,7 @@ setup:
 # volumes ????
 # Your containers have to restart in case of a crash.
 # /home/login/data
-# login.42.fr.
+# login.42.fr
 
 
 # For obvious security reasons, any credentials, API keys, env

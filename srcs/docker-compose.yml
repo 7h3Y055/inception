@@ -7,35 +7,38 @@ services:
     build: ./requirements/nginx/
     ports:
       - 443:443
-    # networks:
-    #   - inception_net
+    networks:
+      - inception_net
     volumes:
       - ${HOME_PATH}/data/wordpress:/var/www/html/wordpress
     env_file:
       - .env
+    restart: on-failure
     depends_on:
       - wordpress
 
   wordpress:
     build: ./requirements/wordpress/
-    # networks:
-    #   - inception_net
+    networks:
+      - inception_net
     volumes:
       - ${HOME_PATH}/data/wordpress:/var/www/html/wordpress
     env_file:
       - .env
+    restart: on-failure
     depends_on:
       - mariadb
 
   mariadb:
     build: ./requirements/mariadb/
-    # networks:
-    #   - inception_net
+    networks:
+      - inception_net
     volumes:
       - ${HOME_PATH}/data/mariadb:/var/lib/mysql
     env_file:
       - .env
+    restart: on-failure
 
-# networks:
-#   inception_net:
-#     driver: bridge
+networks:
+  inception_net:
+    driver: bridge
