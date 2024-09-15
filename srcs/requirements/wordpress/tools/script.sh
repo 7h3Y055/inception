@@ -15,7 +15,7 @@ cd wordpress
 
 while ! nc -z -w 1 mariadb 3306; do
   echo "Waiting for MariaDB..."
-  sleep 1
+  sleep 0.5
 done
 
 /bin/wp config create --force --dbname=$WP_DATABASE_NAME --dbuser=$WP_USER --dbpass=$WP_USER_PASSWORD --dbhost=mariadb --dbprefix=$WP_DB_PREFIX

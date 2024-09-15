@@ -7,7 +7,7 @@ mysqld_safe --skip-networking &
 
 while ! mysql 2>/dev/null; do
   echo "Waiting for MariaDB..."
-  sleep 1
+  sleep 0.5
 done
 
 mysql_secure_installation <<EOF

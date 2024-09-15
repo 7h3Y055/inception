@@ -13,7 +13,7 @@ services:
       - ${HOME_PATH}/data/wordpress:/var/www/html/wordpress
     env_file:
       - .env
-    restart: on-failure
+    restart: always
     depends_on:
       - wordpress
 
@@ -25,7 +25,7 @@ services:
       - ${HOME_PATH}/data/wordpress:/var/www/html/wordpress
     env_file:
       - .env
-    restart: on-failure
+    restart: always
     depends_on:
       - mariadb
 
@@ -37,7 +37,7 @@ services:
       - ${HOME_PATH}/data/mariadb:/var/lib/mysql
     env_file:
       - .env
-    restart: on-failure
+    restart: always
 
 networks:
   inception_net:
