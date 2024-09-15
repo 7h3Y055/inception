@@ -32,21 +32,3 @@ setup:
 
 
 	@# rm -rf $(HOME_PATH)/data
-
-# test:
-# 	@echo $(DOMAIN)
-# 	@# docker run -it alpine sh
-
-# docker rmi $(docker images -aq)
-
-
-# volumes ????
-# Your containers have to restart in case of a crash.
-# /home/login/data
-# login.42.fr
-
-
-# For obvious security reasons, any credentials, API keys, env
-# variables etc... must be saved locally in a .env file and ignored by
-# git. Publicly stored credentials will lead you directly to a failure
-# of the project.

@@ -22,6 +22,8 @@ done
 
 /bin/wp core install --url=$DOMAIN --title=$WP_TITLE --admin_user=$ADMIN_USERNAME --admin_password=$ADMIN_PASSWORD --admin_email=$ADMIN_EMAIL
 
+touch STATUS
+
 php-fpm82 -F
 
 

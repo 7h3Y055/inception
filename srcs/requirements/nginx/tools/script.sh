@@ -12,5 +12,9 @@ SSL_CRT_PATH_ESCAPED=$(echo "$SSL_CRT_PATH" | sed 's/\//\\\//g')
 
 sed -i "s/\[SSL_CRT_PATH\]/$SSL_CRT_PATH_ESCAPED/" /etc/nginx/http.d/default.conf
 
+while ! head -c 0 /var/www/html/wordpress/STATUS 2>/dev/null; do
+  echo "Waiting for Wordpress..."
+  sleep 0.5
+done
 
 nginx -g "daemon off;"
