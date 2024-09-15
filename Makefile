@@ -17,7 +17,7 @@ down:
 	rm -rf $(HOME_PATH)/data
 
 status:
-	@watch --color -t C_DIR=$(C_DIR) NAME=$(NAME) bash ./srcs/requirements/tools/status.sh
+	@watch -n 0.1 --color -t C_DIR=$(C_DIR) NAME=$(NAME) bash ./srcs/requirements/tools/status.sh
 
 logs:
 	docker-compose -f $(C_DIR) -p $(NAME) logs $(c)
