@@ -1,6 +1,6 @@
 include srcs/.env
 
-NAME = inception
+NAME  = inception
 C_DIR = ./srcs/docker-compose.yml
 
 up: setup build
