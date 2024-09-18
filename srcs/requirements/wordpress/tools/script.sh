@@ -24,6 +24,13 @@ done
 
 touch STATUS
 
+wp plugin install redis-cache --activate
+
+sed -i "22i define('WP_REDIS_HOST', 'redis');" wp-config.php
+
+wp redis enable
+
+
 php-fpm82 -F
 
 

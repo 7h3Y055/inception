@@ -12,4 +12,4 @@ COPY ./conf/www.conf /etc/php82/php-fpm.d/www.conf
 
 RUN chmod +x script.sh
 
-CMD [ "./script.sh" ]
+ENTRYPOINT [ "./script.sh" ]

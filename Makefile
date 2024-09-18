@@ -15,7 +15,7 @@ stop:
 down:
 	@docker-compose -f $(C_DIR) -p $(NAME) down --rmi all -v
 	@echo "[+] Remove Local Data Files"
-	@rm -rf $(HOME_PATH)/data
+	@rm -rf $(HOME_PATH)/data #HERE
 
 status:
 	@watch -n 0.1 --color -t C_DIR=$(C_DIR) NAME=$(NAME) bash ./srcs/requirements/tools/status.sh

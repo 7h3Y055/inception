@@ -11,4 +11,4 @@ COPY ./conf/mariadb-server.cnf /etc/my.cnf.d/mariadb-server.cnf
 COPY ./tools/script.sh ./script.sh
 RUN chmod +x ./script.sh
 
-CMD [ "./script.sh" ]
+ENTRYPOINT [ "./script.sh" ]

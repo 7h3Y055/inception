@@ -13,8 +13,6 @@ echo -e "${CYAN}----------------------------------------------------------------
 echo -e "${GREEN}\t\t\t\t\t\tDocker Compose Status for Project:${NC} ${WHITE}$NAME${NC}"
 echo -e "${CYAN}------------------------------------------------------------------------------------------------------------------------------------------------${NC}"
 
-while true; do echo hi ; sleep 0.5;  done
-
 
 docker-compose -f "$C_DIR" -p "$NAME" ps | while read -r line; do
   if [[ $line != *"IMAGE"* ]]; then
