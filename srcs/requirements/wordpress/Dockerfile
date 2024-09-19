@@ -3,8 +3,8 @@ FROM alpine:3.19
 WORKDIR /
 
 RUN apk update --no-cache
-RUN apk upgrade --no-cache
-RUN apk add --no-cache zip php php-fpm php-phar php-mysqli mariadb-client php82-mbstring php82-iconv
+
+RUN apk add --no-cache zip php php-fpm php-phar php-mysqli mariadb-client php82-mbstring php82-iconv php82-session
 
 
 COPY ./tools/script.sh script.sh

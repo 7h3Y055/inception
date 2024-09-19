@@ -4,11 +4,8 @@ WORKDIR /
 
 RUN apk update --no-cache
 
-RUN apk add redis --no-cache
-
 COPY ./tools/setup.sh .
-
 RUN chmod +x ./setup.sh
 
-ENTRYPOINT ["./setup.sh"]
 
+ENTRYPOINT [ "./setup.sh" ]

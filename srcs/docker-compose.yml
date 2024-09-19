@@ -28,7 +28,7 @@ services:
     restart: always
     depends_on:
       - mariadb
-      # - redis
+      - redis
 
   mariadb:
     build: ./requirements/mariadb/
@@ -48,20 +48,36 @@ services:
     restart : always
 
 
-  # ftp:
-  #   build: ./requirements/bonus/ftp/
-  #   ports:
-  #     - 21:21
-  #     - 21100-21110:21100-21110
-  #   networks:
-  #     - inception_net
-  #   volumes:
-  #     - ${HOME_PATH}/data/wordpress:/var/www/html/wordpress
-  #   env_file:
-  #     - .env
-  #   restart : always
-  #   depends_on:
-  #     - wordpress
+  ftp:
+    build: ./requirements/bonus/ftp/
+    ports:
+      - 21:21
+      - 21100-21110:21100-21110
+    volumes:
+      - ${HOME_PATH}/data/wordpress:/var/www/html/wordpress
+    env_file:
+      - .env
+    restart : always
+    depends_on:
+      - wordpress
+
+  cadvisor:
+    build: ./requirements/bonus/cadvisor
+    env_file:
+      - .env
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+      - /dev/disk/:/dev/disk:ro
+    ports:
+      - 8080:8080
+    restart: always
+
+
+
+
 
 networks:
   inception_net:

@@ -3,6 +3,8 @@
 
 cd /var/www/html
 
+# wget https://wordpress.org/wordpress-6.0.9.zip
+# wget https://wordpress.org/wordpress-6.5.5.zip
 wget https://wordpress.org/latest.zip
 wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli-nightly.phar
 
@@ -25,11 +27,14 @@ done
 touch STATUS
 
 wp plugin install redis-cache --activate
+wp plugin install pexlechris-adminer --activate
 
 sed -i "22i define('WP_REDIS_HOST', 'redis');" wp-config.php
 
 wp redis enable
 
+mkdir wp-adminer
+wget https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1.php -O wp-adminer/index.php
 
 php-fpm82 -F
 

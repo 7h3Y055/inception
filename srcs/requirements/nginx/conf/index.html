@@ -3,9 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inception</title>
+    <title>My Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section-title {
+            border-bottom: 2px solid #333;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+        .list-item {
+            margin: 5px 0;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello World</h1>
+    <div class="container">
+        <h1>My Resume</h1>
+        
+        <div class="section">
+            <h2 class="section-title">Personal Information</h2>
+            <p>Name: John Doe</p>
+            <p>Email: johndoe@example.com</p>
+            <p>Phone: (123) 456-7890</p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Education</h2>
+            <p>Bachelor of Science in Computer Science</p>
+            <p>University XYZ, 2019 - 2023</p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="list-item">
+                <h3>Software Developer</h3>
+                <p>Company ABC, 2023 - Present</p>
+                <p>Responsibilities:</p>
+                <ul>
+                    <li>Develop and maintain web applications.</li>
+                    <li>Collaborate with cross-functional teams.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Skills</h2>
+            <ul>
+                <li>Programming: Python, JavaScript, HTML, CSS</li>
+                <li>Frameworks: Django, React</li>
+                <li>Tools: Git, Docker</li>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>

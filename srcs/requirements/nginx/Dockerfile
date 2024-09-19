@@ -3,7 +3,7 @@ FROM alpine:3.19
 WORKDIR /
 
 RUN apk update --no-cache
-RUN apk upgrade --no-cache
+
 RUN apk add nginx --no-cache
 RUN apk add openssl --no-cache
 
