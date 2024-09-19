@@ -1,3 +1,17 @@
+
+
+# remove it
+# remove it
+# remove it# remove it
+# remove it
+# remove it
+logs: # remove it
+	@docker-compose -f $(C_DIR) -p $(NAME) logs $(c) # remove it
+
+
+
+
+
 include srcs/.env
 
 NAME  = inception
@@ -19,9 +33,6 @@ down:
 
 status:
 	@watch -n 0.1 --color -t C_DIR=$(C_DIR) NAME=$(NAME) bash ./srcs/requirements/tools/status.sh
-
-logs:
-	@docker-compose -f $(C_DIR) -p $(NAME) logs $(c)
 
 re:
 	@docker-compose -f $(C_DIR) -p $(NAME) restart
