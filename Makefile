@@ -1,17 +1,3 @@
-
-
-# remove it
-# remove it
-# remove it# remove it
-# remove it
-# remove it
-logs: # remove it
-	@docker-compose -f $(C_DIR) -p $(NAME) logs $(c) # remove it
-
-
-
-
-
 include srcs/.env
 
 NAME  = inception
@@ -43,3 +29,14 @@ rebuild: down up
 setup:
 	@LOGIN=$(LOGIN) DOMAIN=$(DOMAIN) bash ./srcs/requirements/tools/setup.sh
 
+
+
+
+
+
+# logs:
+# 	docker-compose -f $(C_DIR) -p $(NAME) logs $(c) # remove it
+
+# nginx script
+# wordpress config
+# wordpress Dockerfile

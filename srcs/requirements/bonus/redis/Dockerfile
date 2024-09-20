@@ -4,11 +4,9 @@ WORKDIR /
 
 RUN apk update --no-cache
 
-RUN apk add redis --no-cache
+RUN apk add redis --no-cache  
 
-COPY ./tools/setup.sh .
+CMD ["--protected-mode", "no"]
 
-RUN chmod +x ./setup.sh
-
-ENTRYPOINT ["./setup.sh"]
+ENTRYPOINT ["redis-server"]
 
