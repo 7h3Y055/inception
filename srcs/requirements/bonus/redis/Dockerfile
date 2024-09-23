@@ -9,4 +9,3 @@ RUN apk add redis --no-cache
 CMD ["--protected-mode", "no"]
 
 ENTRYPOINT ["redis-server"]
-

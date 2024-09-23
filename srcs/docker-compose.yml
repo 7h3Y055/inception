@@ -1,12 +1,15 @@
+
+
 services:
   nginx:
+    container_name: nginx
     build: ./requirements/nginx/
     ports:
       - 443:443
     networks:
       - inception_net
     volumes:
-      - ${HOME_PATH}/data/wordpress:/var/www/html/wordpress
+      - wordpress_volume:/var/www/html/wordpress
     env_file:
       - .env
     restart: always
@@ -15,11 +18,12 @@ services:
       - cadvisor
 
   wordpress:
+    container_name: wordpress
     build: ./requirements/wordpress/
     networks:
       - inception_net
     volumes:
-      - ${HOME_PATH}/data/wordpress:/var/www/html/wordpress
+      - wordpress_volume:/var/www/html/wordpress
     env_file:
       - .env
     restart: always
@@ -28,32 +32,40 @@ services:
       - redis
 
   mariadb:
+    container_name: mariadb
     build: ./requirements/mariadb/
     networks:
       - inception_net
     volumes:
-      - ${HOME_PATH}/data/mariadb:/var/lib/mysql
+      - mariadb_volume:/var/lib/mysql
     env_file:
       - .env
     restart: always
 
 
   redis:
+    container_name: redis
     build: ./requirements/bonus/redis/
     networks:
       - inception_net
+    volumes:
+      - wordpress_volume:/var/www/html/wordpress
     env_file:
       - .env
     restart : always
+    depends_on:
+      - wordpress
 
+# BONUS {
 
   ftp:
+    container_name: ftp
     build: ./requirements/bonus/ftp/
     ports:
       - 21:21
       - 21100-21110:21100-21110
     volumes:
-      - ${HOME_PATH}/data/wordpress:/var/www/html/wordpress
+      - wordpress_volume:/var/www/html/wordpress
     env_file:
       - .env
     restart : always
@@ -61,6 +73,7 @@ services:
       - wordpress
 
   cadvisor:
+    container_name: cadvisor
     build: ./requirements/bonus/cadvisor
     volumes:
       - /:/rootfs:ro
@@ -73,14 +86,26 @@ services:
     env_file:
       - .env
     restart: always
+# }
 
 
-
+volumes:
+  wordpress_volume:
+    driver: local
+    driver_opts:
+      type: none
+      device: ${HOME_PATH}/data/wordpress
+      o: bind
+  mariadb_volume:
+    driver: local
+    driver_opts:
+      type: none
+      device: ${HOME_PATH}/data/mariadb
+      o: bind
 
 
 networks:
   inception_net:
     driver: bridge
-
 
 

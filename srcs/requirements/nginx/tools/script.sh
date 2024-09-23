@@ -18,7 +18,13 @@ while ! head -c 0 /var/www/html/wordpress/STATUS 2>/dev/null; do
 done
 
 rm /var/www/html/wordpress/STATUS
-mkdir -p /var/www/html/wordpress/static/
-mv /index.html /var/www/html/wordpress/static/
+
+
+
+# BONUS {
+  mkdir -p /var/www/html/wordpress/static/
+  mv /index.html /var/www/html/wordpress/static/
+# }
+
 
 nginx -g "daemon off;"

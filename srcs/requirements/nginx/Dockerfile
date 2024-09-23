@@ -10,7 +10,10 @@ RUN apk add openssl --no-cache
 
 COPY ./conf/default.conf /etc/nginx/http.d/default.conf
 COPY ./tools/script.sh ./script.sh
-COPY ./conf/index.html /
+
+# BONUS {
+    COPY ./conf/index.html /
+# }
 
 RUN chmod +x ./script.sh
 

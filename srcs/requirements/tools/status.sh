@@ -46,3 +46,12 @@ docker-compose -f "$C_DIR" -p "$NAME" stats --no-stream | while read -r line; do
 done
 
 echo -e "${CYAN}------------------------------------------------------------------------------------------------------------------------------------------------${NC}"
+docker volume ls | while read -r line; do
+  if [[ $line != *"VOLUME"* ]]; then
+    echo -e "${WHITE}$line${NC}"
+  else
+    echo -e "${YELLOW}$line${NC}"
+  fi
+done
+echo -e "${CYAN}------------------------------------------------------------------------------------------------------------------------------------------------${NC}"
+

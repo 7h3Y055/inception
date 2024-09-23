@@ -15,7 +15,7 @@ stop:
 down:
 	@docker-compose -f $(C_DIR) -p $(NAME) down --rmi all -v
 	@echo "[+] Remove Local Data Files"
-	@rm -rf $(HOME_PATH)/data #HERE
+	@rm -rf $(HOME_PATH)/data
 
 status:
 	@watch -n 0.1 --color -t C_DIR=$(C_DIR) NAME=$(NAME) bash ./srcs/requirements/tools/status.sh
@@ -34,9 +34,19 @@ setup:
 
 
 
-# logs:
-# 	docker-compose -f $(C_DIR) -p $(NAME) logs $(c) # remove it
 
-# nginx script
-# wordpress config
-# wordpress Dockerfile
+
+# read about docker network
+
+# read about docker volumes 	
+
+
+How Docker and docker compose work
+The difference between a Docker image used with docker compose and without docker compose
+The benefit of Docker compared to VMs
+
+# zip php php-fpm php-phar php-mysqli mariadb-client php82-mbstring php82-iconv php82-session
+
+
+
+# search about all our installed services
