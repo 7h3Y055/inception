@@ -38,12 +38,12 @@ setup:
 
 # read about docker network
 
-# read about docker volumes 	
+# read about docker volumes
 
 
-How Docker and docker compose work
-The difference between a Docker image used with docker compose and without docker compose
-The benefit of Docker compared to VMs
+# How Docker and docker compose work
+# The difference between a Docker image used with docker compose and without docker compose
+# The benefit of Docker compared to VMs
 
 # zip php php-fpm php-phar php-mysqli mariadb-client php82-mbstring php82-iconv php82-session
 
