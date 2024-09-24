@@ -43,6 +43,8 @@ services:
     restart: always
 
 
+
+# BONUS {
   redis:
     container_name: redis
     build: ./requirements/bonus/redis/
@@ -53,8 +55,6 @@ services:
     env_file:
       - .env
     restart : always
-
-# BONUS {
 
   ftp:
     container_name: ftp

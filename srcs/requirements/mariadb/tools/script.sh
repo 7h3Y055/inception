@@ -33,4 +33,4 @@ EOF
 
 mysqladmin -u root shutdown
 
-exec mysqld --user=mysql --console
+exec mysqld --user=mysql
