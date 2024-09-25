@@ -26,8 +26,16 @@ Welcome to the **Inception** project! This project is designed to provide a full
 
 ## Setup Instructions And Usage
 
-1. **Clone the repository:**
-   
+1. **Install And Start Docker**
+
+   ```bash
+   pacman -S docker
+   (OR)
+   apt install docker
+   systemctl start docker
+   ```
+
+2. **Clone the repository:**
 
    ```bash
    git clone https://github.com/7h3Y055/inception.git
