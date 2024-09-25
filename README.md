@@ -6,10 +6,11 @@ Welcome to the **Inception** project! This project is designed to provide a full
 
 - [Features](#features)
 - [Technologies](#technologies)
-- [Setup Instructions](#setup-instructions)
+- [Setup Instructions And Usage](#setup-instructions-and-usage)
 - [Usage](#usage)
-- [Status Monitoring](#status-monitoring)
 - [Stopping and Removing Containers](#stopping-and-removing-containers)
+- [Project Architecture](#project-architecture)
+- [License](#license)
 
 ## Features
 
