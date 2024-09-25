@@ -34,3 +34,5 @@ Welcome to the **Inception** project! This project is designed to provide a full
    ```bash
    git clone https://github.com/7h3Y055/inception.git
    cd inception
+   cp srcs/.example_env srcs/.env
+   make
