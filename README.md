@@ -74,9 +74,12 @@ Welcome to the **Inception** project! This project is designed to provide a full
 
 ## Project Architecture
 
-![Project Architecture](imgs/Adminer.png)
-![Project Architecture](imgs/Static_Web_Page.png)
+1. **Wordpress**
 ![Project Architecture](imgs/wordpress.png)
+2. **Adminer**
+![Project Architecture](imgs/Adminer.png)
+3. **Static Web Page**
+![Project Architecture](imgs/Static_Web_Page.png)
 
 
 ## License
