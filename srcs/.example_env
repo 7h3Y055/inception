@@ -1,5 +1,5 @@
 # Login
-LOGIN=ybouchma
+LOGIN=LOGIN
 
 # Panel Admin Credentials
 ADMIN_USERNAME=${LOGIN}

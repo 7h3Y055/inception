@@ -8,10 +8,8 @@ Welcome to the **Inception** project! This project is designed to provide a full
 - [Technologies](#technologies)
 - [Setup Instructions](#setup-instructions)
 - [Usage](#usage)
-- [Stopping and Removing Containers](#stopping-and-removing-containers)
 - [Status Monitoring](#status-monitoring)
-- [Contributing](#contributing)
-- [License](#license)
+- [Stopping and Removing Containers](#stopping-and-removing-containers)
 
 ## Features
 
@@ -26,7 +24,7 @@ Welcome to the **Inception** project! This project is designed to provide a full
 - Docker Compose
 - Bash
 
-## Setup Instructions
+## Setup Instructions And Usage
 
 1. **Clone the repository:**
    
@@ -36,3 +34,30 @@ Welcome to the **Inception** project! This project is designed to provide a full
    cd inception
    cp srcs/.example_env srcs/.env
    make
+   ```
+## Status Monitoring
+
+1. **Monitor CLI:**
+
+   ```bash
+   make status
+   ```
+
+2. **Monitor GUI (cadvisor):**
+
+   http://localhost:8080
+
+## Stopping and Removing Containers
+
+1. **Stopping Containers**
+
+   ```bash
+   make stop
+   ```
+
+2. **Stopping And Remove Containers And Volumes And Networks**
+
+   ```bash
+   make down
+   ```
+
