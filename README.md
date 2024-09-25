@@ -43,6 +43,8 @@ Welcome to the **Inception** project! This project is designed to provide a full
    cp srcs/.example_env srcs/.env
    make
    ```
+   Don't forget to edit srcs/.env with your informations.
+
 ## Status Monitoring
 
 1. **Monitor CLI:**
@@ -68,4 +70,16 @@ Welcome to the **Inception** project! This project is designed to provide a full
    ```bash
    make down
    ```
+
+## Project Architecture
+
+![Project Architecture](imgs/Adminer.png)
+![Project Architecture](imgs/Static_Web_Page.png)
+![Project Architecture](imgs/wordpress.png)
+
+
+## License
+   
+   Feel free to adjust any sections to better match your project's needs!
+
 
