@@ -31,6 +31,7 @@ Welcome to the **Inception** project! This project is designed to provide a full
 
    ```bash
    pacman -S docker
+   pacman -S docker-compose
    (OR)
    apt install docker
    systemctl start docker
