@@ -1,17 +1,19 @@
 #!/bin/sh
 
 
-cd /var/www/html
 
-wget https://wordpress.org/latest.zip
+# curl https://wordpress.org/latest.zip --output latest.zip
 wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli-nightly.phar
-
-unzip latest.zip
-rm latest.zip
 chmod +x wp-cli-nightly.phar
 mv wp-cli-nightly.phar /bin/wp
 
-cd wordpress
+# unzip latest.zip
+
+# rm latest.zip
+
+cd /var/www/html/wordpress
+
+wp core download --path=.
 
 while ! nc -z -w 1 mariadb 3306; do
   echo "Waiting for MariaDB..."
@@ -22,7 +24,8 @@ done
 
 /bin/wp core install --url=$DOMAIN --title=$WP_TITLE --admin_user=$ADMIN_USERNAME --admin_password=$ADMIN_PASSWORD --admin_email=$ADMIN_EMAIL
 
-
+wp plugin install wp-dark-mode --activate
+wp theme activate twentytwentyfour
 
 
 # BONUS {
@@ -36,6 +39,8 @@ done
 # }
 
 touch STATUS
+
+chmod -R 777 /var/www/html/wordpress
 
 php-fpm82 -F
 

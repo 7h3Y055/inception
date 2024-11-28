@@ -4,7 +4,7 @@ WORKDIR /
 
 RUN apk update --no-cache
 
-RUN apk add --no-cache zip php php-fpm php-phar php-mysqli mariadb-client php82-mbstring php82-iconv php82-session
+RUN apk add --no-cache zip wget php php-fpm php-phar php-mysqli mariadb-client php82-mbstring php82-iconv php82-session
 
 
 COPY ./tools/script.sh script.sh

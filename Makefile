@@ -13,7 +13,7 @@ stop:
 	@docker-compose -f $(C_DIR) -p $(NAME) stop
 
 down:
-	@docker-compose -f $(C_DIR) -p $(NAME) down --rmi all -v
+	@docker-compose -f $(C_DIR) -p $(NAME) down --volumes --rmi all -v --remove-orphans
 	@echo "[+] Remove Local Data Files"
 	@rm -rf $(HOME_PATH)/data
 
